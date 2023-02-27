@@ -36,15 +36,16 @@ const AboutMe = () => {
         <div className="flex flex-col-reverse md:flex-row w-full gap-8 pt-12">
           <div className="flex flex-col justify-start w-full max-w-[520px] m-auto md:m-0">
             <p>
-              Tijdens de pandemie heb ik de switch gemaakt van gespecialiseerd kok naar student
-              software developer. Coderen was vroeger een hobby en nu ik de kans heb om te doen wat
-              ik echt leuk vind voelt het als een{" "}
-              <span className="text-detailsColor">droom die uitkomt.</span>
+              Tijdens de pandemie heb ik de switch gemaakt van Sous-Chef naar full-stack developer.
+              Coderen was vroeger een hobby en nu ik de kans heb om te doen wat ik echt leuk vind
+              voelt het als een <span className="text-detailsColor">droom die uitkomt.</span>
             </p>
             <p className="py-10">
-              Omdat ik al vanaf mijn 17e aan het koken ben kan ik goed in een team werken. Daarnaast
-              kan ik niet wachten om soft/hard skills te leren van mensen die veel meer ervaring als
-              mij hebben.
+              Omdat ik vanaf mijn 16e werk in de horeca en mezelf omhoog heb gewerkt tot een leiding
+              gevende functie kan ik goed werken in teamverband. Ik ben geduldig, goed in puzzelen
+              en ik hou ervan om mijn kennis te verbreden. Tijdens mijn ICT opleiding heb ik in
+              leuke bedrijven gewerkt en mocht ik vele applicaties ontwikkelen. De applicaties die
+              ik met jullie mag delen kunt u hieronder vinden!
             </p>
             <p className="py-4">Mijn vaardigheden:</p>
             <div className="grid gird-col grid-cols-2 md:grid-cols-3 text-sm md:text-base">

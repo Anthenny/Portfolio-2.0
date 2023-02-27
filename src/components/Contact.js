@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useForm from "../utils/useForm";
 import validation from "../utils/validation";
@@ -8,8 +8,10 @@ import { FaLinkedinIn } from "react-icons/fa";
 
 const Contact = () => {
   const form = useRef();
-
-  const [values, handelChange, handelSubmit, errors, clearError] = useForm(validation, form);
+  const [values, handelChange, handelSubmit, errors, clearError, emailState] = useForm(
+    validation,
+    form
+  );
 
   return (
     <section id="contact" className="bg-main h-full py-[100px]">
@@ -54,118 +56,126 @@ const Contact = () => {
               </Link>
             </ul>
           </div>
-          <form
-            ref={form}
-            onSubmit={handelSubmit}
-            className="flex flex-col h-auto shadow-xl shadow-gray-300 rounded-xl gap-2 p-4 mx-auto tablet:mx-0 max-w-[700px] w-full text-base"
-          >
-            <div className="flex flex-col sm:flex-row">
-              <div className="flex flex-col p-2 flex-1">
-                <label htmlFor="name" className="p-1 text-[#fff]">
-                  Naam
-                </label>
-
-                <input
-                  type="text"
-                  placeholder="Naam"
-                  name="name"
-                  id="name"
-                  className="p-2 rounded-xl w-full focus:outline-none focus:ring focus:ring-detailsColor2"
-                  value={values.name}
-                  onChange={handelChange}
-                  onFocus={clearError}
-                />
-                {errors.name && (
-                  <span className="text-base p-1 text-[#dc2626] font-light">{errors.name}</span>
-                )}
-              </div>
-
-              <div className="flex flex-col p-2 flex-1">
-                <label htmlFor="phoneNumber" className="p-1 text-[#fff]">
-                  Telefoon Nummer
-                </label>
-                <input
-                  type="text"
-                  placeholder="Telefoon"
-                  name="phoneNumber"
-                  id="phoneNumber"
-                  className="p-2 rounded-xl w-full focus:outline-none focus:ring focus:ring-detailsColor2"
-                  value={values.phoneNumber}
-                  onChange={handelChange}
-                  onFocus={clearError}
-                />
-                {errors.phoneNumber && (
-                  <span className="text-base p-1 text-[#dc2626] font-light">
-                    {errors.phoneNumber}
-                  </span>
-                )}
-              </div>
-            </div>
-
-            <div className="flex flex-col p-2 flex-1">
-              <label htmlFor="email" className="p-1 text-[#fff]">
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                id="email"
-                className="p-2 rounded-xl w-full focus:outline-none focus:ring focus:ring-detailsColor2"
-                value={values.email}
-                onChange={handelChange}
-                onFocus={clearError}
-              />
-              {errors.email && (
-                <span className="text-base p-1 text-[#dc2626] font-light">{errors.email}</span>
-              )}
-            </div>
-
-            <div className="flex flex-col p-2 flex-1">
-              <label htmlFor="subject" className="p-1 text-[#fff]">
-                Onderwerp
-              </label>
-              <input
-                type="text"
-                placeholder="Onderwerp"
-                name="subject"
-                id="subject"
-                className="p-2 rounded-xl w-full focus:outline-none focus:ring focus:ring-detailsColor2"
-                value={values.subject}
-                onChange={handelChange}
-                onFocus={clearError}
-              />
-              {errors.subject && (
-                <span className="text-base p-1 text-[#dc2626] font-light">{errors.subject}</span>
-              )}
-            </div>
-
-            <div className="flex flex-col p-2 flex-1">
-              <label htmlFor="message" className="p-1 text-[#fff]">
-                Bericht
-              </label>
-              <textarea
-                rows={4}
-                placeholder="Bericht ..."
-                name="message"
-                id="message"
-                className="p-2 rounded-xl focus:outline-none focus:ring focus:ring-detailsColor2 min-h-[40px]"
-                value={values.message}
-                onChange={handelChange}
-                onFocus={clearError}
-              ></textarea>
-              {errors.message && (
-                <span className="text-base p-1 text-[#dc2626] font-light">{errors.message}</span>
-              )}
-            </div>
-
-            <button
-              type="submit"
-              className="text-base p-2 text-mainText mt-4 mx-2 rounded-xl text-center border border-detailsColor2 bg-detailsColor2 cursor-pointer hover:bg-mainText hover:text-detailsColor2 duration-500"
+          {!emailState && (
+            <form
+              ref={form}
+              onSubmit={handelSubmit}
+              className="flex flex-col h-auto shadow-xl shadow-gray-300 rounded-xl gap-2 p-4 mx-auto tablet:mx-0 max-w-[700px] w-full text-base"
             >
-              Stuur bericht
-            </button>
-          </form>
+              <div className="flex flex-col sm:flex-row">
+                <div className="flex flex-col p-2 flex-1">
+                  <label htmlFor="name" className="p-1 text-[#fff]">
+                    Naam
+                  </label>
+
+                  <input
+                    type="text"
+                    placeholder="Naam"
+                    name="name"
+                    id="name"
+                    className="p-2 rounded-xl w-full focus:outline-none focus:ring focus:ring-detailsColor2"
+                    value={values.name}
+                    onChange={handelChange}
+                    onFocus={clearError}
+                  />
+                  {errors.name && (
+                    <span className="text-base p-1 text-[#ff8888] font-light">{errors.name}</span>
+                  )}
+                </div>
+
+                <div className="flex flex-col p-2 flex-1">
+                  <label htmlFor="phoneNumber" className="p-1 text-[#fff]">
+                    Telefoon Nummer
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Telefoon"
+                    name="phoneNumber"
+                    id="phoneNumber"
+                    className="p-2 rounded-xl w-full focus:outline-none focus:ring focus:ring-detailsColor2"
+                    value={values.phoneNumber}
+                    onChange={handelChange}
+                    onFocus={clearError}
+                  />
+                  {errors.phoneNumber && (
+                    <span className="text-base p-1 text-[#ff8888] font-light">
+                      {errors.phoneNumber}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex flex-col p-2 flex-1">
+                <label htmlFor="email" className="p-1 text-[#fff]">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  id="email"
+                  className="p-2 rounded-xl w-full focus:outline-none focus:ring focus:ring-detailsColor2"
+                  value={values.email}
+                  onChange={handelChange}
+                  onFocus={clearError}
+                />
+                {errors.email && (
+                  <span className="text-base p-1 text-[#ff8888] font-light">{errors.email}</span>
+                )}
+              </div>
+
+              <div className="flex flex-col p-2 flex-1">
+                <label htmlFor="subject" className="p-1 text-[#fff]">
+                  Onderwerp
+                </label>
+                <input
+                  type="text"
+                  placeholder="Onderwerp"
+                  name="subject"
+                  id="subject"
+                  className="p-2 rounded-xl w-full focus:outline-none focus:ring focus:ring-detailsColor2"
+                  value={values.subject}
+                  onChange={handelChange}
+                  onFocus={clearError}
+                />
+                {errors.subject && (
+                  <span className="text-base p-1 text-[#ff8888] font-light">{errors.subject}</span>
+                )}
+              </div>
+
+              <div className="flex flex-col p-2 flex-1">
+                <label htmlFor="message" className="p-1 text-[#fff]">
+                  Bericht
+                </label>
+                <textarea
+                  rows={4}
+                  placeholder="Bericht ..."
+                  name="message"
+                  id="message"
+                  className="p-2 rounded-xl focus:outline-none focus:ring focus:ring-detailsColor2 min-h-[40px]"
+                  value={values.message}
+                  onChange={handelChange}
+                  onFocus={clearError}
+                ></textarea>
+                {errors.message && (
+                  <span className="text-base p-1 text-[#ff8888] font-light">{errors.message}</span>
+                )}
+              </div>
+
+              <button
+                type="submit"
+                className="text-base p-2 text-mainText mt-4 mx-2 rounded-xl text-center border border-detailsColor2 bg-detailsColor2 cursor-pointer hover:bg-mainText hover:text-detailsColor2 duration-500"
+              >
+                Stuur bericht
+              </button>
+            </form>
+          )}
+
+          {emailState && (
+            <div className="flex items-center justify-center mx-auto tablet:mx-0 max-w-[700px] w-full">
+              <p className="text-xl text-justify">De email is succesvol verzonden!</p>
+            </div>
+          )}
         </div>
       </div>
     </section>

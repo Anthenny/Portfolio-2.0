@@ -50,6 +50,7 @@ const ProjectSection = ({
               {!projectLiveLink ? (
                 <Link
                   to={`${projectGithubLink}`}
+                  target={"_blank"}
                   className="flex-1 h-full py-3 flex justify-center text-center w-full border-solid border border-detailsColor hover:scale-105 hover:border-mainText group/item1 duration-300 ease-in"
                 >
                   <p className="flex justify-center text-center gap-4 group-hover/item1:text-detailsColor  duration-300 ease-in">
@@ -62,6 +63,7 @@ const ProjectSection = ({
               ) : (
                 <Link
                   to={`${projectLiveLink}`}
+                  target={"_blank"}
                   className="flex-1 h-full py-3 flex justify-center text-center w-full border-solid border border-detailsColor hover:scale-105 hover:border-mainText group/item1 duration-300 ease-in"
                 >
                   <p className="flex justify-center text-center gap-4 group-hover/item1:text-detailsColor  duration-300 ease-in">

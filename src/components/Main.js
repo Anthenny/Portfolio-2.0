@@ -18,13 +18,18 @@ const Main = () => {
         <div className="hidden xl:flex xl:flex-1" />
         <div className="xl:fkex-1">
           <h1 className="text-3xl">Anthenny de Hoon</h1>
-          <p className="text-2xl text-detailsColor">Software Developer</p>
-          <p className="text-xl py-4 w-full max-w-[520px]">
-            Ik ben woonachtig in de omgeving van Rotterdam. mijn interesses liggen voornamelijk bij
-            full stack development. Ik haal veel voldoening uit het verbreden van mijn kennis en het
-            leveren van goede projecten.
+          <p className="text-2xl text-detailsColor">Fullstack | Software Developer</p>
+          <p className="text-xl py-4 w-full max-w-[600px]">
+            Ik ben Anthenny en ik ben een full-stack junior developer. Ik ben woonachtig in de
+            omgeving van Rotterdam. Mijn hobby is coderen en ik haal mijn voldoening uit het
+            verbreden van mijn kennis en het leveren van goede projecten.
           </p>
-          <ul className="flex justify-between w-full max-w-[400px]">
+
+          <p className="text-xl py-4 w-full max-w-[600px]">
+            Op deze pagina kan je onder andere mijn vaardigheden en projecten zien. Als er nog meer
+            vragen zijn kunt u mij bereiken via het contact formulier onderaan deze pagina.
+          </p>
+          <ul className="flex mt-5 justify-between w-full max-w-[600px]">
             <Link to="https://www.linkedin.com/in/anthenny-de-hoon-152b721b1/" target={"_blank"}>
               <li className="flex items-center gap-4 bg-detailsColor2 hover:bg-mainText rounded-full p-3 ease-in duration-300 hover:scale-105 group/item1">
                 <FaLinkedinIn

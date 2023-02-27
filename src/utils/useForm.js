@@ -10,9 +10,10 @@ const useForm = (validation, form) => {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const [emailState, setEmailState] = useState(true);
 
   const sendEmail = () => {
-    emailjs.sendForm("service_24j29tr", "template_e00m9sz", form.current, "SR17iEIADb6T20ayR").then(
+    emailjs.sendForm("service_ry13h7r", "template_cjzhzs3", form.current, "yTAMT2R-MCyCH23ZQ").then(
       (result) => {
         console.log(result.text);
       },
@@ -34,6 +35,7 @@ const useForm = (validation, form) => {
 
     if (Object.keys(validation(values)).length === 0) {
       sendEmail();
+      setEmailState(true);
       setValues({ name: "", email: "", phoneNumber: "", subject: "", message: "" });
     }
   };
@@ -43,7 +45,7 @@ const useForm = (validation, form) => {
     setValues({ ...values, [name]: value });
   };
 
-  return [values, handelChange, handelSubmit, errors, clearError];
+  return [values, handelChange, handelSubmit, errors, clearError, emailState];
 };
 
 export default useForm;

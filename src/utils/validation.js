@@ -6,8 +6,8 @@ const validation = (values) => {
     errors.name = "Naam vereist";
   } else if (!/^[a-zA-Z\s]+$/i.test(values.name)) {
     errors.name = "Naam mag allen letter bewaten";
-  } else if (!/^.{4,15}$/i.test(values.name)) {
-    errors.name = "De invoer moet ten minste 3 en maximaal 15 tekens bevatten";
+  } else if (!/^.{1,30}$/i.test(values.name)) {
+    errors.name = "De invoer moet ten minste 1 en maximaal 30 tekens bevatten";
   }
 
   //Email
@@ -27,7 +27,7 @@ const validation = (values) => {
   //Subject
   if (!values.subject) {
     errors.subject = "Onderwerp vereist";
-  } else if (!/^[a-zA-Z\s]+$/i.test(values.subject)) {
+  } else if (!/^[a-zA-Z0-9\s]+$/i.test(values.subject)) {
     errors.subject = "Onderwerp mag allen letters bewaten";
   } else if (!/^.{4,30}$/i.test(values.subject)) {
     errors.subject = "De invoer moet ten minste 3 en maximaal 30 tekens bevatten";

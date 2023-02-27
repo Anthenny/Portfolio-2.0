@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const ProjectCard = ({ projectImage, projectName, projectLink }) => {
   return (
     <Link to={`${projectLink}`}>
-      <div className="h-auto relative flex items-center justify-center rounded-xl shadow-gray-400 group hover:bg-[#000]/60">
+      <div className="h-[400px] max-w-[600px] w-full m-auto relative flex items-center justify-center rounded-xl shadow-gray-400 group hover:bg-[#000]/60">
         <img
           className="rounded-xl group-hover:opacity-10 w-full h-full duration-200"
           src={`/${projectImage}`}
